@@ -12,7 +12,7 @@ def spider():
     count = 0
     cn = 0
     while count <= 1270:
-        new_url = 'http://111.235.66.98/cgi-bin/koha/opac-search.pl?&limit=mc-itype,phr:CB&limit=mc-itype,phr:E%20B&limit=mc-itype,phr:GC&offset={}'.format(count)
+        new_url = 'url{}'.format(count)
         print count
         for i in range(3):
             try:
@@ -26,7 +26,7 @@ def spider():
         for new_link in new_soup.find_all('a', attrs={'class': 'title'}):
             new_title = new_link.string
             new_title = new_title.strip()
-            new_href = 'http://111.235.66.98' + new_link.get('href')
+            new_href = 'url' + new_link.get('href')
             try:
                 print new_title
             except Exception:
